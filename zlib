@@ -2,4 +2,4 @@
 # Id$ nonnax 2022-03-20 14:25:43 +0800
 q="$1"
 page="${2:-1}"
-./zlib.rb "$q" "$page" | kramdown > /tmp/"$q"_"$page".html && echo /tmp/"$q"_"$page".html | pipefox
+./z.rb "$q" "$page" | kramdown > /tmp/"$q"_"$page".html && echo /tmp/"$q"_"$page".html | pipefox
