@@ -22,14 +22,22 @@ def scrape
   
 end
 
-scrape.each_with_index do |r,i|
-  title, h, im = r
-  h= h.prepend ROOT
-  image= "![#{title}](#{im})"  
-  post=<<~___
-    [#{image}](#{h}){:target='_blank'}
-    [#{title}](#{h}){:target='_blank'}
-  ___
-  puts post
-  puts
+def results &block
+  t=[]
+  scrape.each_with_index do |r,i|
+    t<<Thread.new{
+      title, h, im = r
+      h= h.prepend ROOT
+      image= "![#{title}](#{im})"  
+      post=<<~___
+      <div class='item' markdown='1'>
+        [#{image}](#{h}){:target='_blank'}
+        [#{title}](#{h}){:target='_blank'}
+      </div>
+      ___
+      block[post]
+    }
+    t.each(&:join)
+  end
 end
+

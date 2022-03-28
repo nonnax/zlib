@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Id$ nonnax 2022-03-28 18:03:57 +0800
+q=$1
+p=${2:-1}
+./kpage.rb "$q" "$p" > kpage.html && echo kpage.html | pipefox

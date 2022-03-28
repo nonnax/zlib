@@ -1,0 +1,46 @@
+<html>
+  <head>
+  <title>index</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <style>
+        #content{
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          justify-content: center;
+          width: 100%;
+        }
+
+        .item{
+          flex: 200px;
+        }
+
+        .item a{
+          flex: 200px;
+          text-decoration: none;
+        }
+        .item:hover{
+          -moz-transform: scale(1.025);
+        }
+
+        .active{
+          background: blue;
+          color: white;
+        }
+  
+  </style>
+  </head>
+  <body>
+  <div id="header">
+    ZBooks
+  </div>  
+  <div class="navbar">
+    <div><a href="/movie" class="active">movies</a></div>
+    <div><a href="/tv">tv-shows</a></div>
+  </div>
+  <div id="content">
+    <%= yield %>
+  </div>
+  
+  </body>
+</html>
