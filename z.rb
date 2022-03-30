@@ -32,6 +32,7 @@ def results &block
       post=<<~___
       <div class='item' markdown='1'>
         [#{image}](#{h}){:target='_blank'}
+
         [#{title}](#{h}){:target='_blank'}
       </div>
       ___
